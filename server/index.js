@@ -19,7 +19,13 @@ const app = express();
 
 // Middlewares (run for every request)
 app.use(express.json()); // Parse JSON request bodies into req.body
-app.use(cors());
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://dulcet-peony-7e083f.netlify.app", // your Netlify link
+  credentials: true,
+}));
+
 dotenv.config();
 // Allow requests from your React app (default: all origins)
 
