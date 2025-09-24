@@ -19,10 +19,9 @@ const app = express();
 
 // Middlewares (run for every request)
 app.use(express.json()); // Parse JSON request bodies into req.body
-const cors = require("cors");
-
 app.use(cors({
-  origin: "https://dulcet-peony-7e083f.netlify.app", // your Netlify link
+  origin: "https://ltpr.netlify.app/",   // your Netlify link
+  methods: "GET,POST,PUT,DELETE",
   credentials: true,
 }));
 
