@@ -20,10 +20,25 @@ const app = express();
 // Middlewares (run for every request)
 app.use(express.json()); // Parse JSON request bodies into req.body
 app.use(cors({
-  origin: "https://ltpr.netlify.app/",   // your Netlify link
-  methods: "GET,POST,PUT,DELETE",
+  origin: [
+    "https://ltpr.netlify.app",
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Test route
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working!' });
+});
 
 dotenv.config();
 // Allow requests from your React app (default: all origins)
