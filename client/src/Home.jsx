@@ -13,7 +13,7 @@ import "./App.css";                                 // Global styles for the UI
 // Create a pre-configured Axios instance.
 // All API calls will use this base URL so we don't repeat it.
 const api = axios.create({
-  baseURL: "https://navratri-5uoj.onrender.com",                 // Your Express server port
+  baseURL: import.meta.env.VITE_API_URL                 // Your Express server port
 });
 
 // Configure a reusable SweetAlert2 "toast" (small popup) for quick success/error messages.

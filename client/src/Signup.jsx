@@ -78,7 +78,7 @@ const Signup = () => {
 
     try {
       // Call your backend /register endpoint with the form data
-      const res = await axios.post("https://navratri-5uoj.onrender.com/register", {
+      const res = await axios.post(import.meta.env.VITE_API_URL + "/register", {
         name: name.trim(),
         email: email.trim(),
         password, // send as typed (note: in production, server should hash this)
