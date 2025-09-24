@@ -16,7 +16,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("http://localhost:3001/login", { email, password });
+      const res = await axios.post("https://navratri-5uoj.onrender.com/login", { email, password });
       if (res.data.status === "Success") {
         localStorage.setItem("userId", res.data.userId);
         await Swal.fire({
